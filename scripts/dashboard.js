@@ -89,7 +89,7 @@ async function loadAccounts() {
 
       // Rendre chaque compte cliquable
       accountDiv.addEventListener("click", () => {
-        window.location.href = `account.html?accountId=${account._id}`;
+        window.location.href = `../pages/account.html?accountId=${account._id}`;
       });
 
       accountsList.appendChild(accountDiv);
@@ -131,6 +131,59 @@ async function loadTransactions() {
     console.error("Erreur de chargement des transactions:", error);
   }
 }
+
+// ----------------------------------------------------
+document
+  .getElementById("download-csv-btn")
+  .addEventListener("click", downloadCSV);
+
+async function downloadCSV() {
+  try {
+    // Récupération des transactions via une requête API
+    const response = await fetch("http://localhost:3000/transactions/all", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    if (!response.ok) {
+      alert("Erreur lors de la récupération des transactions.");
+      return;
+    }
+
+    const transactions = await response.json();
+
+    // Conversion des données en CSV
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Date,Type,Montant (€),Compte ID\n";
+
+    transactions.transactions.forEach((transaction) => {
+      const date = new Date(transaction.date).toLocaleDateString();
+      const type = transaction.type === "deposit" ? "Dépôt" : "Retrait";
+      const amount = transaction.amount.toFixed(2);
+      const accountId = transaction.accountId;
+
+      csvContent += `${date},${type},${amount},${accountId}\n`;
+    });
+
+    // Création d'un lien de téléchargement avec le contenu CSV
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "transactions.csv");
+    document.body.appendChild(link);
+
+    // Lancement du téléchargement
+    link.click();
+
+    // Suppression du lien après téléchargement
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error("Erreur lors du téléchargement des transactions:", error);
+  }
+}
+
+// ----------------------------------------------------------
 
 // Fonction pour charger les notifications
 async function loadNotifications() {

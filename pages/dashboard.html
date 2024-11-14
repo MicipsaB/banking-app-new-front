@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EzyBank - Dashboard</title>
-    <link rel="stylesheet" href="./dashboard.css" />
-    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="../styles/dashboard.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
   </head>
   <body>
     <div id="header-container"></div>
@@ -36,18 +36,13 @@
       <!-- Transaction History -->
       <section class="transactions-section">
         <h2>Historique des Transactions</h2>
+        <button id="download-csv-btn">Télécharger en CSV</button>
         <div id="transactions-list">
           <!-- Transactions will be dynamically inserted here -->
         </div>
       </section>
 
       <!-- Notifications -->
-      <section class="notifications-section">
-        <h2>Notifications de Solde Bas</h2>
-        <ul id="notifications-list">
-          <!-- Low balance notifications will be dynamically inserted here -->
-        </ul>
-      </section>
     </div>
 
     <!-- Modal for adding a new account -->
@@ -94,7 +89,7 @@
       </div>
     </div>
 
-    <script src="header.js"></script>
-    <script src="dashboard.js"></script>
+    <script src="../scripts/header.js"></script>
+    <script src="../scripts/dashboard.js"></script>
   </body>
 </html>

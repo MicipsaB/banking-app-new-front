@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (response.success) {
       // Si la connexion réussie, rediriger l'utilisateur vers le Dashboard
       localStorage.setItem("token", response.token); // Stocker le token dans localStorage
-      window.location.href = "/dashboard.html"; // Redirection vers la page Dashboard
+      window.location.href = "../pages/dashboard.html"; // Redirection vers la page Dashboard
     } else {
       // Si la connexion échoue, afficher un message d'erreur
       alert(response.message || "Erreur lors de la connexion");

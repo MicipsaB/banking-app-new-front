@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (response.success) {
       // Si l'inscription réussie, rediriger l'utilisateur vers la page de connexion
-      window.location.href = "/login.html"; // Redirection vers la page Connexion
+      window.location.href = "../pages/login.html"; // Redirection vers la page Connexion
     } else {
       // Si l'inscription échoue, afficher un message d'erreur
       alert(response.message || "Erreur lors de l'inscription");

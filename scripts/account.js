@@ -60,8 +60,6 @@ async function loadTransactions(accountId) {
   }
 
   try {
-    console.log(url);
-
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -149,7 +147,7 @@ document
 
         if (response.ok) {
           alert("Compte supprimé.");
-          window.location.href = "dashboard.html"; // Redirige vers le dashboard après la suppression
+          window.location.href = "../pages/dashboard.html"; // Redirige vers le dashboard après la suppression
         } else {
           alert("Erreur lors de la suppression du compte.");
         }

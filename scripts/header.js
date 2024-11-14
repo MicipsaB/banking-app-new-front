@@ -15,7 +15,7 @@ function getUserInfo() {
           userNameElement.textContent = data.name; // Affiche le nom de l'utilisateur
           userNameElement.style.cursor = "pointer";
           userNameElement.addEventListener("click", () => {
-            window.location.href = "profile.html";
+            window.location.href = "../pages/profile.html";
           });
         }
       })
@@ -33,7 +33,7 @@ function getUserInfo() {
 // Fonction pour gérer la déconnexion de l'utilisateur
 function handleLogout() {
   localStorage.removeItem("token"); // Supprimer le token du localStorage
-  window.location.href = "login.html"; // Rediriger vers la page de connexion
+  window.location.href = "../pages/login.html"; // Rediriger vers la page de connexion
 }
 
 // Fonction pour injecter dynamiquement le contenu du header et initialiser les événements
@@ -41,7 +41,7 @@ function loadHeader() {
   const headerElement = document.getElementById("header-container");
 
   // Charger et insérer le contenu du header depuis header.html
-  fetch("header.html")
+  fetch("../pages/header.html")
     .then((response) => response.text())
     .then((data) => {
       headerElement.innerHTML = data; // Insérer le contenu du header
