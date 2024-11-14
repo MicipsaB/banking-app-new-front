@@ -1,0 +1,190 @@
+/* Style de base pour la page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e; /* Bleu nuit pour le fond */
+  color: #ffffff; /* Texte en blanc */
+}
+
+/* Conteneur principal du tableau de bord */
+.dashboard-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* En-tête principal */
+.dashboard-container h1 {
+  text-align: center;
+  color: #e0e1dd;
+}
+
+.dashboard-container #user-name {
+  color: #00aaff; /* Accent de couleur pour le nom de l'utilisateur */
+}
+
+/* Sections du tableau de bord */
+section {
+  background-color: #16213e; /* Couleur bleu nuit plus sombre */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Titres des sections */
+section h2 {
+  color: #00aaff; /* Accent de couleur pour les titres de section */
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Style de la section de solde total */
+.balance-section p {
+  font-size: 2em;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Style de la liste des comptes */
+.accounts-section,
+.transactions-section,
+.notifications-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Bouton Ajouter un compte */
+#add-account-btn {
+  background-color: #00aaff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+#add-account-btn:hover {
+  background-color: #0077cc;
+}
+
+/* Style des éléments de la liste des comptes */
+.account-item {
+  background-color: #0f3460;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.account-item:hover {
+  background-color: #1a5276;
+}
+
+/* Style pour les transactions */
+.transaction-item {
+  background-color: #1a1a2e;
+  padding: 15px;
+  border: 1px solid #2e2e4e;
+  border-radius: 5px;
+}
+
+/* Notifications de solde bas */
+.notifications-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notifications-section li {
+  background-color: #e94560;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Responsive : pour les petits écrans */
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  #add-account-btn {
+    width: 100%;
+  }
+
+  .account-item,
+  .transaction-item,
+  .notifications-section li {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+/* Styles pour la modale */
+.modal {
+  display: none; /* Masqué par défaut */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#add-account-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-account-form input,
+#add-account-form select {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+#add-account-form button {
+  background-color: #4e94f0;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#add-account-form button:hover {
+  background-color: #3a74b8;
+}
